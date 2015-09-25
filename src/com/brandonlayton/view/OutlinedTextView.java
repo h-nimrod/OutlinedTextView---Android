@@ -72,19 +72,16 @@ private String strokeColor = "#000";
 		paint.setStrokeWidth(strokeWidth);
 		
 		String text = getText().toString();
-		int gravity = this.getGravity();
+		int gravity = this.getGravity() & Gravity.HORIZONTAL_GRAVITY_MASK;
 		float x = 0;
 		
-		//53 = Right
-		//51 = Left
-		//Was getting the wrong integers for Gravity.RIGHT and Gravity.LEFT
-		if(gravity == 53){
+		if(gravity == Gravity.RIGHT){
 			x = getWidth() - paint.measureText(text);
 		}
-		else if (gravity == 51 || gravity == Gravity.NO_GRAVITY){
+		else if (gravity == Gravity.LEFT || gravity == Gravity.NO_GRAVITY){
 			
 		}
-		else if (gravity == Gravity.CENTER) {
+		else if (gravity == (Gravity.CENTER & Gravity.HORIZONTAL_GRAVITY_MASK)) {
 			x = (getWidth() - paint.measureText(text))/2;
 		}
 		canvas.drawText(text, x, getBaseline(), paint);
