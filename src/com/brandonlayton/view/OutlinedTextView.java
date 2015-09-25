@@ -79,7 +79,7 @@ private String strokeColor = "#000";
 			x = getWidth() - paint.measureText(text);
 		}
 		else if (gravity == Gravity.LEFT || gravity == Gravity.NO_GRAVITY){
-			
+			x = (float)getPaddingLeft();
 		}
 		else if (gravity == (Gravity.CENTER & Gravity.HORIZONTAL_GRAVITY_MASK)) {
 			x = (getWidth() - paint.measureText(text))/2;
